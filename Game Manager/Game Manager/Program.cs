@@ -11,6 +11,21 @@ namespace Logger
     {
         static void Main(string[] args)
         {
+            Vars.initPaths();
+
+            if (Vars.useCommandsManager)
+            {
+                if (string.IsNullOrEmpty(Vars.commandsPath))
+                    return;
+
+                CommandsManager.init();
+                CommandsManager.getInstance.initManager();
+            }
+            else
+            {
+                Console.ReadLine();
+            }
+
             if (Vars.useLogger)
             {
                 if (string.IsNullOrEmpty(Vars.logsPath))
@@ -32,18 +47,6 @@ namespace Logger
                 gameProcess.Start();
             }
 
-            if (Vars.useCommandsManager)
-            {
-                if (string.IsNullOrEmpty(Vars.commandsPath))
-                    return;
-
-                CommandsManager.init();
-                CommandsManager.getInstance.initManager();
-            }
-            else
-            {
-                Console.ReadLine();
-            }
         }
     }
 }

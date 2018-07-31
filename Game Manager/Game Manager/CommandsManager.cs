@@ -20,20 +20,48 @@ namespace Logger
                         Utils.exit();
 
                     string input = Console.ReadLine().Trim();
-                    for (int i = 0; i < Vars.commands.Length; i++)
+                    
+                    if (File.ReadAllText(Vars.commandsPath) == "")
                     {
-                        if (input == Vars.commands[i])
+                        for (int i = 0; i < Vars.commands.Length; i++)
                         {
-                            if (input == "exit")
+                            if (input == Vars.commands[i])
                             {
-                                willExit = true;
+                                createFile();
+                                File.WriteAllText(Vars.commandsPath, input);
+
+                                if (input == "exit")
+                                {
+                                    willExit = true;
+                                }
+
+                                break;
                             }
-							
-							break;
                         }
+                    }
+                    else
+                    {
+                        if (getIsCommand(input))
+                            Console.WriteLine("Wait there is a command already running!");
                     }
                 }
             }).Start();
+        }
+
+        bool getIsCommand(string txt)
+        {
+            bool s = false;
+
+            for (int i = 0; i < Vars.commands.Length; i++)
+            {
+                if (txt == Vars.commands[i])
+                {
+                    s = true;
+                    break;
+                }
+            }
+
+            return s;
         }
 
         void createFile()

@@ -1,0 +1,7 @@
+C:\Users\alex\Desktop\Projects\C#\Game Manager\Game Manager\bin\Debug\Game Manager.exe.config
+C:\Users\alex\Desktop\Projects\C#\Game Manager\Game Manager\bin\Debug\Game Manager.exe
+C:\Users\alex\Desktop\Projects\C#\Game Manager\Game Manager\bin\Debug\Game Manager.pdb
+C:\Users\alex\Desktop\Projects\C#\Game Manager\Game Manager\obj\Debug\Game Manager.csprojAssemblyReference.cache
+C:\Users\alex\Desktop\Projects\C#\Game Manager\Game Manager\obj\Debug\Game Manager.csproj.CoreCompileInputs.cache
+C:\Users\alex\Desktop\Projects\C#\Game Manager\Game Manager\obj\Debug\Game Manager.exe
+C:\Users\alex\Desktop\Projects\C#\Game Manager\Game Manager\obj\Debug\Game Manager.pdb

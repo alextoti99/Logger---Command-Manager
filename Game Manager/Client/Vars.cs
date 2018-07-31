@@ -8,4 +8,10 @@
 	public static bool useCommandsManager = true;
 
 	public static string[] commands = { "help", "exit" };
+
+    public static void initPaths()
+    {
+        logsPath = System.IO.Directory.GetCurrentDirectory() + "/logs.txt";
+        commandsPath = System.IO.Directory.GetCurrentDirectory() + "/commands.txt";
+    }
 }

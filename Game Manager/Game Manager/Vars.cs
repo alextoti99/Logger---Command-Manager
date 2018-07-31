@@ -22,5 +22,11 @@ namespace Logger
 
         public static bool logInFiles = true;
         public static string pathForLoggedTexts = "";
+
+        public static void initPaths()
+        {
+            logsPath = System.IO.Directory.GetCurrentDirectory() + "/logs.txt";
+            commandsPath = System.IO.Directory.GetCurrentDirectory() + "/commands.txt";
+        }
     }
 }

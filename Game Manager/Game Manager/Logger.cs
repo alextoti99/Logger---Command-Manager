@@ -13,8 +13,6 @@ namespace Logger
         {
             new Thread(() =>
             {
-                createFile();
-
                 string log = "";
 
                 while (true)
@@ -23,18 +21,19 @@ namespace Logger
 
                     log = readLog();
 
-                    if (string.IsNullOrEmpty(log))
+                    if (!string.IsNullOrEmpty(log) || log != "" || log.Length > 0)
                     {
                         Console.WriteLine(log);
 
                         if (Vars.logInFiles)
                         {
-                            var file = File.Create(Vars.pathForLoggedTexts + DateTime.Now.ToString("h:mm:ss tt") + ".txt");
-                            file.Close();
-                            File.WriteAllText(Vars.pathForLoggedTexts + DateTime.Now.ToString("h:mm:ss tt") + ".txt", log);
+                            //            var file = File.Create(Vars.pathForLoggedTexts + DateTime.Now.ToString("h:mm:ss tt") + ".txt");
+                            //   file.Close();
+                            //    File.WriteAllText(Vars.pathForLoggedTexts + DateTime.Now.ToString("h:mm:ss tt") + ".txt", log);
                         }
 
                         log = "";
+                        emptyLog();
                     }
                 }
 
@@ -48,6 +47,11 @@ namespace Logger
                 var file = File.Create(Vars.logsPath);
                 file.Close();
             }
+        }
+
+        void emptyLog()
+        {
+            File.WriteAllText(Vars.logsPath, string.Empty);
         }
 
         string readLog()
